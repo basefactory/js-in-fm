@@ -1,8 +1,13 @@
 import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
-import WMTSTileGrid from 'ol/tilegrid/WMTS.js';
 import TileWMS from 'ol/source/TileWMS.js';
+import Projection from 'ol/proj/Projection.js';
+
+const projection = new Projection({
+    code: 'EPSG:31370',
+    units: 'm',
+  });
 
 const grb = [new TileLayer({
   source: new TileWMS({
