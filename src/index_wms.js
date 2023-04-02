@@ -2,12 +2,6 @@ import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import TileWMS from 'ol/source/TileWMS.js';
-import Projection from 'ol/proj/Projection.js';
-
-const projection = new Projection({
-    code: 'EPSG:31370',
-    units: 'm',
-  });
 
 const grb = [new TileLayer({
   source: new TileWMS({
@@ -20,8 +14,7 @@ const map = new Map({
   target: 'map',
   layers: grb,
   view: new View({
-    center: [88029.158101,213524.544498],
-    projection: projection,
+    center: [330059.865450,6664050.044158],
     zoom: 18,
   }),
 });
