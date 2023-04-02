@@ -12,22 +12,29 @@ proj4.defs(
 );
 register(proj4);
 const projection = getProjection("EPSG:31370");
+const center = [159988.92, 203741.28];
 
-const grb = [
+const layer = [
   new TileLayer({
     source: new TileWMS({
       url: "https://geo.api.vlaanderen.be/GRB-basiskaart/wms",
-      params: { LAYERS: "GRB_BSK", CRS: "EPSG:31370" },
+      params: {
+        LAYERS: "GRB_BSK",
+        CRS: "EPSG:31370",
+        BBOX: "158979.35,202345.25,161323.8,205476.15",
+      },
     }),
   }),
 ];
 
 const map = new Map({
   target: "map",
-  layers: grb,
+  layers: layer,
   view: new View({
-    center: [159895.27,203915.0],
+    center: center,
     projection: projection,
-    zoom: 22
+    zoom: 18,
   }),
 });
+
+console.log(map)
